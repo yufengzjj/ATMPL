@@ -11,6 +11,7 @@ public:
     void test(int, char*){}
 };
 using namespace std::placeholders;
+using namespace ATMPL;
 void bind_holder_test()
 {
     auto f1 = functional_helper::bind(test, _1,_2);

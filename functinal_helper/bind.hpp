@@ -2,6 +2,10 @@
 #include <type_traits>
 #include <functional>
 #include "function_traits.hpp"
+namespace ATMPL
+{
+	
+
 namespace functional_helper
 {
     template<class BindExpr, class F, class...Args>
@@ -91,4 +95,6 @@ namespace functional_helper
             typename remove_cvr<F>::type, Args...>
                         (std::bind(std::forward<F>(f), std::forward<Args>(args)...)));
     }
+}
+
 }

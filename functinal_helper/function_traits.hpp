@@ -2,6 +2,9 @@
 #include <tuple>
 #include <type_traits>
 
+namespace ATMPL
+{
+
 namespace functional_helper
 {
     template <typename F>
@@ -228,3 +231,4 @@ namespace functional_helper
 }
 
 
+}
