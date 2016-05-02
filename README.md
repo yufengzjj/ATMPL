@@ -28,16 +28,23 @@ this library supports any compilers as long as they support c++11 standard.
 
   
 
-examples: 
-`void test(int,char*){}` 
-`auto f1 = functional_helper::bind(test, _1,_2);` 
-`auto f2 = functional_helper::bind(f1, _1, _2);` 
-`auto test_lambda = [](int, char*)->void{};` 
+examples:
+```c++ 
+void test(int,char*){}
+auto f1 = functional_helper::bind(test, _1,_2);
+auto f2 = functional_helper::bind(f1, _1, _2);
+auto test_lambda = [](int, char*)->void{};
+```
 obtain argument: 
-`functional_helper::function_traits<decltype(test)>::arg<1>::type//char*` 
-`decltype(f1)::underlying_type::arg<1>::type //char*` 
-`decltype(f2)::underlying_type::arg<1>::type //char*` 
-`decltype(test_lambda)::underlying_type::arg<1>::type //char*`  
+```c++
+functional_helper::function_traits<decltype(test)>::arg<1>::type//char*
+decltype(f1)::underlying_type::arg<1>::type //char*
+decltype(f2)::underlying_type::arg<1>::type //char*
+decltype(test_lambda)::underlying_type::arg<1>::type //char*
+f1('A');
+f2('B');
+test_lambda(1,'C');
+```
 
 
 
