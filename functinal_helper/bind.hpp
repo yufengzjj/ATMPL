@@ -1,10 +1,10 @@
 #include <tuple>
 #include <type_traits>
 #include <functional>
-#include "function_traits.hpp"
+#include "func_traits.hpp"
 namespace ATMPL
 {
-	
+    
 
 namespace functional_helper
 {
@@ -42,7 +42,7 @@ namespace functional_helper
 
     template<class F>
     struct bind_holder_stripper_helper<F, false>
-        : public function_traits<F>
+        : public func_traits<F>
     {};
     
     template<class F>
@@ -84,6 +84,12 @@ namespace functional_helper
             return this->_bind_expr(std::forward<_Args>(params)...);
         }
     };
+
+	template <typename T>
+	struct remove_cvr
+	{
+		using type = typename std::remove_cv<typename std::remove_reference<T>::type>::type;
+	};
 
     template<class F, typename...Args>
     auto bind(F&& f, Args&&... args)
