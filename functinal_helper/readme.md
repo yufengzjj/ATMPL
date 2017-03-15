@@ -39,8 +39,8 @@ functional_helper::function_traits<decltype(test)>::arg<1>::type//char*
 decltype(f1)::underlying_type::arg<1>::type //char*
 decltype(f2)::underlying_type::arg<1>::type //char*
 decltype(test_lambda)::underlying_type::arg<1>::type //char*
-f1('A');
-f2('B');
+f1(1,'A');
+f2(2,'B');
 test_lambda(1,'C');
 ```
 
